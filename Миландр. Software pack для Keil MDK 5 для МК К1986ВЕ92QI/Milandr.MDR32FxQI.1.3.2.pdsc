@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+    <vendor>Milandr</vendor>
+    <url></url>
+    <name>MDR32FxQI</name>
+    <description>Milandr MDR32FxQI Series Device Support, Drivers and Examples</description>
+    <license>License.txt</license>
+
+
+    <releases>
+        <release version="1.3.2" date="2025-03-28">
+Fix pdsc name to follow Pack Installer rules in Keil uVision 5.39.0.0.
+        </release>
+        <release version="1.3.1" date="2025-03-27">
+Fix pack name to follow Pack Installer rules in Keil uVision 5.39.0.0.
+        </release>
+        <release version="1.3.0" date="2024-12-21">
+Add new MCU support.
+SPL MDR32FxQI libraries have been updated to version 1.3.0.
+        </release>
+        <release version="1.2.0" date="2024-02-02">
+Added initial MDR1986VE94GI support.
+SPL MDR32FxQI libraries have been updated to version 1.2.0.
+        </release>
+        <release version="1.1.0" date="2023-07-07">
+The addition of the CMSIS_device_header preprocessor directive with the name of the CMSIS header file of the selected microcontroller in the RTE_Components.h file is enabled.
+FLM files updated.
+The SPL MDR32FxQI libraries have been updated to version 1.1.0.
+        </release>
+        <release version="1.0.0" date="2022-04-05">
+Initial version
+        </release>
+    </releases>
+
+
+    <keywords>
+        <!-- keywords for indexing -->
+        <keyword>Milandr</keyword>
+        <keyword>MDR</keyword>
+        <keyword>MDR32FxQI</keyword>
+        <keyword>MDR32F1QI</keyword>
+        <keyword>K1986VE1FI</keyword>
+        <keyword>K1986VE1GI</keyword>
+        <keyword>MDR32F9Q2I</keyword>
+        <keyword>K1986VE92FI</keyword>
+        <keyword>K1986VE92F1I</keyword>
+        <keyword>MDR1986VE94GI</keyword>
+        <keyword>MDR1209GI</keyword>
+        <keyword>MDR32FG16S1QI</keyword>
+    </keywords>
+
+
+    <taxonomy>
+        <description Cclass="Device">Startup, System Setup</description>
+        <description Cclass="Drivers">Drivers for work with microcontroller peripherals</description>
+    </taxonomy>
+
+
+    <devices>
+        <family Dfamily="Milandr" Dvendor="Milandr:99">
+            <subFamily DsubFamily="Cortex-M1">
+                <environment name="uv">
+                    <AMisc>--cpreproc</AMisc>
+                </environment>
+                <!-- MDR32F1QI -->
+                <device Dname="MDR32F1QI">
+                    <processor Dcore="Cortex-M1" DcoreVersion="r1p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian" Dclock="144000000"/>
+                    <compile    header="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\inc\MDR32F1QI.h"/>
+                    <debug      svd="IDE\SVD\MDR32F1QI.svd"/>
+                    <memory     id="IROM1"                           start="0x00000000" size="0x20000" startup="1" default="1"/>
+                    <memory     id="IRAM1"                           start="0x20000000" size="0x8000"  init   ="0" default="1"/>
+                    <memory     id="IRAM2"                           start="0x20100000" size="0x4000"  init   ="0" default="1"/>
+                    <algorithm  name="FLM\MDR32F1QI\MDR32F1QI.FLM"  start="0x00000000" size="0x20000" RAMstart="0x20100000" RAMsize="0x4000" default="1"/>
+                    <description>
+MDR32F1QI (K1986VE1QI RUS)
+Core:
+ - 32-bit RISC core, running at frequencies of up to 144 MHz
+ - 0.8 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+ - 24-bit SysTick Timer
+
+Memory:
+ - 128 KBytes of Flash memory (ISP and IAP)
+ - 48 KBytes of SRAM
+ - external system bus controller (support of SRAM, ROM and NAND Flash)
+
+Supply and Clock rate:
+ - internal regulator for core voltage supply
+ - built-in power control system
+ - internal battery domain
+ - internal 8 MHz RC clock generator with calibration
+ - internal 40 kHz RC clock generator with calibration
+ - external oscillator 2 .. 16 MHz
+ - external oscillator 20 ... 30 MHz
+ - external oscillator 32 KHz
+ - on-board PLL for clock frequency
+ - dedicated PLL for USB clock frequency
+
+Low power consumption modes:
+ - Sleep, Standby and StandAlone
+ - battery domain with RTC and backup registers
+
+Analog features:
+ - 2 * 12-bit ADC (16 channels)
+ - conversion range: 0 to 3.6 V
+ - temperature sensor
+ - 12-bit DAC
+
+Peripheral features:
+ - DMA controller (32 channels)
+ - USB 2.0 full-speed OTG controller (Device and Host)
+ - 3 Synch. 32-bit Timers (Input Capture, Output Compare, PWM)
+ - 2 * CAN interface (2.0B)
+ - 2 * UART
+ - 2 * SPI
+ - Digital interface controller according to GOST 18977-79
+ - Two digital interface controllers according to GOST R 52070-2003
+ - Digital Controller Ethernet 10/100 PHY Transceiver
+ - 96 GPIO pins
+
+Debug mode:
+ - JTAG and SWD
+                    </description>
+                </device>
+                
+                <!-- K1986VE1FI, K1986VE1GI -->
+                <device Dname="K1986VE1xI">
+                    <processor Dcore="Cortex-M1" DcoreVersion="r1p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian" Dclock="144000000"/>
+                    <compile    header="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE1xI\inc\K1986VE1xI.h"/>
+                    <debug      svd="IDE\SVD\K1986VE1xI.svd"/>
+                    <memory     id="IROM1"                           start="0x00000000" size="0x20000" startup="1" default="1"/>
+                    <memory     id="IRAM1"                           start="0x20000000" size="0x8000"  init   ="0" default="1"/>
+                    <memory     id="IRAM2"                           start="0x20100000" size="0x4000"  init   ="0" default="1"/>
+                    <algorithm  name="FLM\K1986VE1xI\K1986VE1xI.FLM" start="0x00000000" size="0x20000" RAMstart="0x20100000" RAMsize="0x4000" default="1"/>
+                    <description>
+K1986VE1FI (MDR1213FI), K1986VE1GI (MDR1213GI)
+Core:
+ - 32-bit RISC core, running at frequencies of up to 144 MHz
+ - 0.8 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+ - 24-bit SysTick Timer
+
+Memory:
+ - 128 KBytes of Flash memory (ISP and IAP)
+ - 48 KBytes of SRAM
+ - external system bus controller (support of SRAM, ROM and NAND Flash)
+
+Supply and Clock rate:
+ - internal regulator for core voltage supply
+ - built-in power control system
+ - internal battery domain
+ - internal 8 MHz RC clock generator with calibration
+ - internal 40 kHz RC clock generator with calibration
+ - external oscillator 2 .. 16 MHz
+ - external oscillator 20 ... 30 MHz
+ - external oscillator 32 KHz
+ - on-board PLL for clock frequency
+ - dedicated PLL for USB clock frequency
+
+Low power consumption modes:
+ - Sleep, Standby and StandAlone
+ - battery domain with RTC and backup registers
+
+Analog features:
+ - 2 * 12-bit ADC (16 channels)
+ - conversion range: 0 to 3.6 V
+ - temperature sensor
+ - 12-bit DAC
+
+Peripheral features:
+ - DMA controller (32 channels)
+ - USB 2.0 full-speed OTG controller (Device and Host)
+ - 3 Synch. 32-bit Timers (Input Capture, Output Compare, PWM)
+ - 2 * CAN interface (2.0B)
+ - 2 * UART
+ - 2 * SPI
+ - Digital interface controller according to GOST 18977-79
+ - Two digital interface controllers according to GOST R 52070-2003
+ - Digital Controller Ethernet 10/100 PHY Transceiver
+ - 96 GPIO pins
+
+Debug mode:
+ - JTAG and SWD
+                    </description>
+                </device>
+            </subFamily>
+
+            <subFamily DsubFamily="Cortex-M3">
+                <environment name="uv">
+                    <AMisc>--cpreproc</AMisc>
+                </environment>
+                <!-- MDR32F9Q2I -->
+                <device Dname="MDR32F9Q2I">
+                    <processor  Dcore="Cortex-M3" DcoreVersion="r2p0" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" Dclock="80000000"/>
+                    <compile    header="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc\MDR32F9Q2I.h"/>
+                    <debug      svd="IDE\SVD\MDR32F9Q2I.svd"/>
+                    <memory     id="IROM1"                           start="0x08000000" size="0x20000" startup="1" default="1"/>
+                    <memory     id="IRAM1"                           start="0x20000000" size="0x8000"  init   ="0" default="1"/>
+                    <algorithm  name="FLM\MDR32F9Q2I\MDR32F9Q2I.FLM" start="0x08000000" size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+                    <description>
+MDR32F9Q2I (K1986BE92QI RUS)
+Core:
+ - 32-bit ARM Cortex-M3 processor, running at frequencies of up to 80 MHz
+ - 1.25 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+ - memory Protection Unit (MPU)
+ - 24-bit SysTick Timer
+
+Memory:
+ - 128 KBytes of Flash memory (ISP and IAP)
+ - 32 KBytes of SRAM
+ - external system bus controller (support of SRAM, ROM and NAND Flash)
+
+Supply and Clock rate:
+ - internal regulator for core voltage supply
+ - built-in power control system
+ - internal battery domain
+ - internal 8 MHz RC clock generator with calibration
+ - internal 40 kHz RC clock generator with calibration
+ - external oscillator 2 .. 16 MHz
+ - external oscillator 32 KHz
+ - on-board PLL for clock frequency
+ - dedicated PLL for USB clock frequency
+
+Low power consumption modes:
+ - Sleep, Stop and Standby
+ - battery domain with RTC and backup registers
+
+Analog features:
+ - 2 * 12-bit ADC (8 channels)
+ - conversion range: 0 to 3.6 V
+ - temperature sensor
+ - 12-bit DAC
+ - internal comparator
+
+Peripheral features:
+ - DMA controller (32 channels)
+ - USB 1.0 full-speed controller (Device and Host)
+ - 3 Synch. 16-bit Timers (Input Capture, Output Compare, PWM)
+ - 2 * CAN interface (2.0B)
+ - 2 * UART
+ - 2 * SPI
+ - 1 * I2C
+ - 43 GPIO pins
+
+Debug mode:
+ - 2 * JTAG and SWD
+                    </description>
+                </device>
+                
+                <!-- K1986VE92FI, K1986VE92F1I -->
+                <device Dname="K1986VE92xI">
+                    <processor  Dcore="Cortex-M3" DcoreVersion="r2p0" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" Dclock="80000000"/>
+                    <compile    header="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h"/>
+                    <debug      svd="IDE\SVD\K1986VE9xI.svd"/>
+                    <memory     id="IROM1"                           start="0x08000000" size="0x20000" startup="1" default="1"/>
+                    <memory     id="IRAM1"                           start="0x20000000" size="0x8000"  init   ="0" default="1"/>
+                    <algorithm  name="FLM\K1986VE9xI\K1986VE9xI.FLM" start="0x08000000" size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+                    <description>
+K1986VE92FI (MDR1211FI), K1986VE92F1I (MDR1211F1I)
+Core:
+ - 32-bit ARM Cortex-M3 processor, running at frequencies of up to 80 MHz
+ - 1.25 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+ - memory Protection Unit (MPU)
+ - 24-bit SysTick Timer
+
+Memory:
+ - 128 KBytes of Flash memory (ISP and IAP)
+ - 32 KBytes of SRAM
+ - external system bus controller (support of SRAM, ROM and NAND Flash)
+
+Supply and Clock rate:
+ - internal regulator for core voltage supply
+ - built-in power control system
+ - internal battery domain
+ - internal 8 MHz RC clock generator with calibration
+ - internal 40 kHz RC clock generator with calibration
+ - external oscillator 2 .. 16 MHz
+ - external oscillator 32 KHz
+ - on-board PLL for clock frequency
+ - dedicated PLL for USB clock frequency
+
+Low power consumption modes:
+ - Sleep, Stop and Standby
+ - battery domain with RTC and backup registers
+
+Analog features:
+ - 2 * 12-bit ADC (8 channels)
+ - conversion range: 0 to 3.6 V
+ - temperature sensor
+ - 12-bit DAC
+ - internal comparator
+
+Peripheral features:
+ - DMA controller (32 channels)
+ - USB 1.0 full-speed controller (Device and Host)
+ - 3 Synch. 16-bit Timers (Input Capture, Output Compare, PWM)
+ - 2 * CAN interface (2.0B)
+ - 2 * UART
+ - 2 * SPI
+ - 1 * I2C
+ - 43 GPIO pins
+
+Debug mode:
+ - 2 * JTAG and SWD
+                    </description>
+                </device>
+                
+                <!-- K1986VE94GI -->
+                <device Dname="K1986VE94GI">
+                    <processor  Dcore="Cortex-M3" DcoreVersion="r2p0" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" Dclock="80000000"/>
+                    <compile    header="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h"/>
+                    <debug      svd="IDE\SVD\K1986VE9xI.svd"/>
+                    <memory     id="IROM1"                           start="0x08000000" size="0x20000" startup="1" default="1"/>
+                    <memory     id="IRAM1"                           start="0x20000000" size="0x8000"  init   ="0" default="1"/>
+                    <algorithm  name="FLM\K1986VE9xI\K1986VE9xI.FLM" start="0x08000000" size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+                    <description>
+K1986VE94GI (MDR1209GI)
+Core:
+ - 32-bit ARM Cortex-M3 processor, running at frequencies of up to 80 MHz
+ - 1.25 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+ - memory Protection Unit (MPU)
+ - 24-bit SysTick Timer
+
+Memory:
+ - 128 KBytes of Flash memory (ISP and IAP)
+ - 32 KBytes of SRAM
+ - external system bus controller (support of SRAM, ROM and NAND Flash)
+
+Supply and Clock rate:
+ - internal regulator for core voltage supply
+ - built-in power control system
+ - internal battery domain
+ - internal 8 MHz RC clock generator with calibration
+ - internal 40 kHz RC clock generator with calibration
+ - external oscillator 2 .. 16 MHz
+ - external oscillator 32 KHz
+ - on-board PLL for clock frequency
+ - dedicated PLL for USB clock frequency
+
+Low power consumption modes:
+ - Sleep, Stop and Standby
+ - battery domain with RTC and backup registers
+
+Analog features:
+ - 2 * 12-bit ADC (16 channels)
+ - conversion range: 0 to 3.6 V
+ - temperature sensor
+ - 2 * 12-bit DAC
+ - internal comparator
+
+Peripheral features:
+ - DMA controller (32 channels)
+ - USB 1.0 full-speed controller (Device and Host)
+ - 3 Synch. 16-bit Timers (Input Capture, Output Compare, PWM)
+ - 2 * CAN interface (2.0B)
+ - 2 * UART
+ - 2 * SPI
+ - 1 * I2C
+ - 96 GPIO pins
+
+Debug mode:
+ - 2 * JTAG and SWD
+                    </description>
+                </device>
+            </subFamily>
+
+            <!-- RISC and DSP CORES -->
+            <subFamily DsubFamily="Cortex-M3 with DSP">
+                <environment name="uv">
+                    <AMisc>--cpreproc</AMisc>
+                </environment>
+                <!-- MDR32FG16S1QI -->
+                <device Dname="MDR32FG16S1QI">
+                    <processor Dcore="Cortex-M3" DcoreVersion="r2p0" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" Dclock="100000000"/>
+                    <compile    header="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32FG16S1QI\inc\MDR32FG16S1QI.h"/>
+                    <debug      svd="IDE\SVD\MDR32FG16S1QI.svd"/>
+                    <memory     id="IROM1"                                 start="0x08000000" size="0x20000" startup="1" default="1"/>
+                    <memory     id="IRAM1"                                 start="0x20000000" size="0x8000"  init   ="0" default="1"/>
+                    <algorithm  name="FLM\MDR32FG16S1QI\MDR32FG16S1QI.FLM" start="0x08000000" size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+                    <description>
+MDR32FG16S1QI (K1901VC1QI RUS)
+Core:
+ - 32-bit RISC processor, running at frequencies of up to 100 MHz
+ - 1.25 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+ - memory Protection Unit (MPU)
+ - 24-bit SysTick Timer
+DSP Core:
+ - TMS320C54 16-bit DSP Core analog, 100MHz
+ - 128 KBytes Data RAM
+ - 128 KBytes Program RAM
+
+Memory:
+ - 128 KBytes of Flash memory (ISP and IAP)
+ - 32 KBytes of SRAM
+ - external system bus controller (support of SRAM, ROM and NAND Flash)
+
+Supply and Clock rate:
+ - internal regulator for core voltage supply
+ - built-in power control system
+ - internal battery domain
+ - internal 8 MHz RC clock generator with calibration
+ - internal 40 kHz RC clock generator with calibration
+ - external oscillator 2 .. 16 MHz
+ - external oscillator 32 KHz
+ - on-board PLL for clock frequency
+ - dedicated PLL for USB clock frequency
+
+Low power consumption modes:
+ - Sleep, Stop and Standby
+ - battery domain with RTC and backup registers
+
+Analog features:
+ - 2 * 12-bit ADC (16 channels)
+ - conversion range: 0 to 3.6 V
+ - temperature sensor
+ - 1 * 12-bit DAC
+ - internal comparator
+
+Peripheral features:
+ - DMA controller (32 channels)
+ - USB 1.0 full-speed controller (Device and Host)
+ - 3 Synch. 16-bit Timers (Input Capture, Output Compare, PWM)
+ - 2 * CAN interface (2.0B)
+ - 3 * UART
+ - 2 * SPI
+ - 1 * I2C
+ - 96 GPIO pins
+
+Debug mode:
+ - 2 * JTAG and SWD
+                    </description>
+                </device>
+            </subFamily>
+        </family>
+    </devices>
+
+
+    <conditions>
+        <!-- Device Conditions -->
+        <condition id="CON_MDR32F1QI">
+            <description>MDR32F1QI device</description>
+            <require Dvendor="Milandr:99" Dname="MDR32F1QI"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        <condition id="CON_K1986VE1xI">
+            <description>K1986VE1xI (K1986VE1FI, K1986VE1GI) devices</description>
+            <require Dvendor="Milandr:99" Dname="K1986VE1xI"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        <condition id="CON_MDR32F1QI_K1986VE1xI">
+            <description>MDR32F1QI, K1986VE1xI device</description>
+            <accept condition="CON_MDR32F1QI"/>
+            <accept condition="CON_K1986VE1xI"/>
+        </condition>
+        
+        <condition id="CON_MDR32F9Q2I">
+            <description>MDR32F9Q2I device</description>
+            <require Dvendor="Milandr:99" Dname="MDR32F9Q2I"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        <condition id="CON_K1986VE92xI">
+            <description>K1986VE92F(1)I device</description>
+            <require Dvendor="Milandr:99" Dname="K1986VE92xI"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        <condition id="CON_K1986VE92F1I">
+            <description>K1986VE92F1I device</description>
+            <require Dvendor="Milandr:99" Dname="K1986VE92F1I"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        <condition id="CON_K1986VE94GI">
+            <description>K1986VE94GI device</description>
+            <require Dvendor="Milandr:99" Dname="K1986VE94GI"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        <condition id="CON_K1986VE9xI">
+            <description>K1986VE9xI series device</description>
+            <accept condition="CON_MDR32F9Q2I"/>
+            <accept condition="CON_K1986VE92xI"/>
+            <accept condition="CON_K1986VE94GI"/>
+        </condition>
+        
+        <condition id="CON_MDR32FG16S1QI">
+            <description>MDR32FG16S1QI device</description>
+            <require Dvendor="Milandr:99" Dname="MDR32FG16S1QI"/>
+            <require Cclass="Device" Cgroup="Startup"/>
+        </condition>
+        
+        
+        <condition id="CON_K1986VE9xI_MDR32FG16S1QI">
+            <description>K1986VE9xI series device or MDR32FG16S1QI device</description>
+            <accept condition="CON_K1986VE9xI"/>
+            <accept condition="CON_MDR32FG16S1QI"/>
+        </condition>
+        <condition id="CON_K1986VE9xI_K1986VE1xI">
+            <description>K1986VE9xI series device or K1986VE1xI device</description>
+            <accept condition="CON_K1986VE9xI"/>
+            <accept condition="CON_MDR32F1QI_K1986VE1xI"/>
+        </condition>
+        
+        <condition id="CON_MDR32FxQI">
+            <description>MDR32FxQI series device</description>
+            <accept condition="CON_MDR32F1QI_K1986VE1xI"/>
+            <accept condition="CON_K1986VE9xI"/>
+            <accept condition="CON_MDR32FG16S1QI"/>
+        </condition>
+        
+        <!-- Device + Driver Conditions -->
+        <condition id="CON_MDR32F1QI_K1986VE1xI_ETH_DEPENDENCIES_DMA_RST_CLK_UTILS">
+            <description>K1986VE1xI device with ETH dependencies (DMA, RST_CLK and UTILS)</description>
+            <require condition="CON_MDR32F1QI_K1986VE1xI"/>
+            <require Cclass="Drivers" Cgroup="DMA"/>
+            <require Cclass="Drivers" Cgroup="RST_CLK"/>
+            <require Cclass="Drivers" Cgroup="UTILS"/>
+        </condition>
+        <condition id="CON_MDR32FxQI_UART_DENPENDENCIES_RST_CLK">
+            <description>MDR32FxQI series device with UART dependencies (RST_CLK)</description>
+            <require condition="CON_MDR32FxQI"/>
+            <require Cclass="Drivers" Cgroup="RST_CLK"/>
+        </condition>
+        <condition id="CON_MDR32FxQI_USBLIB_DENPENDENCIES_USB">
+            <description>MDR32FxQI series device with USB_LIB dependencies (USB)</description>
+            <require condition="CON_MDR32FxQI"/>
+            <require Cclass="Drivers" Cgroup="USB"/>
+        </condition>
+        <condition id="CON_MDR32FxQI_EEPROM_DENPENDENCIES_UTILS">
+            <description>MDR32FxQI series device, EEPROM dependencies (UTILS)</description>
+            <require condition="CON_MDR32FxQI"/>
+            <require Cclass="Drivers" Cgroup="UTILS"/>
+        </condition>
+        <condition id="CON_MDR32FxQI_UTILS_DENPENDENCIES_RST_CLK">
+            <description>MDR32FxQI series device, UTILS dependencies (RST_CLK)</description>
+            <require condition="CON_MDR32FxQI"/>
+            <require Cclass="Drivers" Cgroup="RST_CLK"/>
+        </condition>
+    </conditions>
+
+
+    <components>
+        <!-- MDR32F9Q2I Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.2.0i" condition="CON_MDR32F9Q2I">
+            <description>System and startup files for MDR32F9Q2I device</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_MDR32F9Q2I
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\startup\arm\startup_MDR32F9Q2I.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\startup\system_MDR32F9Q2I.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\startup\system_MDR32F9Q2I.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc\MDR32F9Q2I.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\MDR32F9Q2I.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\MDR32F9Q2I_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\MDR32F9Q2I_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        <!-- K1986VE92F(1)I Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.2.0i" condition="CON_K1986VE92xI">
+            <description>System and startup files for K1986VE92F(1)I device</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_K1986VE92xI
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\startup\arm\startup_K1986VE9xI.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\startup\system_K1986VE9xI.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\startup\system_K1986VE9xI.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\K1986VE9xI.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\K1986VE9xI_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\K1986VE9xI_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        <!-- K1986VE94GI Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.2.0i" condition="CON_K1986VE94GI">
+            <description>System and startup files for K1986VE94GI device</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_K1986VE94GI
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\startup\arm\startup_K1986VE9xI.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\startup\system_K1986VE9xI.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\startup\system_K1986VE9xI.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\K1986VE9xI.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\K1986VE9xI_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\K1986VE9xI_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        
+        <!-- MDR32F1QI REV6 Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cvariant="1. Rev.6+" Cversion="2.2.0i" condition="CON_MDR32F1QI">
+            <description>System and startup files for MDR32F1QI device revisions 6 and higher. Defines USE_MDR32F1QI_REV6</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_MDR32F1QI_REV6
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\startup\arm\startup_MDR32F1QI.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\startup\system_MDR32F1QI.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\startup\system_MDR32F1QI.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\inc\MDR32F1QI.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM1\core_cm1.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\MDR32F1QI.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\MDR32F1QI_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\MDR32F1QI_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        <!-- MDR32F1QI REV3_4 Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cvariant="2. Rev.3 or Rev.4" Cversion="2.2.0i" condition="CON_MDR32F1QI">
+            <description>System and startup files for MDR32F1QI device revisions 3 and 4. Defines USE_MDR32F1QI_REV3_4</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_MDR32F1QI_REV3_4
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\startup\arm\startup_MDR32F1QI.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\startup\system_MDR32F1QI.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\startup\system_MDR32F1QI.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F1QI\inc\MDR32F1QI.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM1\core_cm1.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\MDR32F1QI.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\MDR32F1QI_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\MDR32F1QI_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        <!-- K1986VE1FI, K1986VE1GI Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.2.0i" condition="CON_K1986VE1xI">
+            <description>System and startup files for K1986VE1FI, K1986VE1GI devices.</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_K1986VE1xI
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE1xI\startup\arm\startup_K1986VE1xI.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE1xI\startup\system_K1986VE1xI.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE1xI\startup\system_K1986VE1xI.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE1xI\inc\K1986VE1xI.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM1\core_cm1.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\K1986VE1xI.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\K1986VE1xI_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\K1986VE1xI_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        
+        <!-- MDR32FG16S1QI Startup -->
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.1.0i" condition="CON_MDR32FG16S1QI">
+            <description>System and startup files for MDR32FG16S1QI device</description>
+            <RTE_Components_h>
+/* Target microcontroller definition */
+#define USE_MDR32FG16S1QI
+            </RTE_Components_h>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32FG16S1QI\startup\arm\startup_MDR32FG16S1QI.S" attr="config"/>
+                <!-- system file -->
+                <file category="source" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32FG16S1QI\startup\system_MDR32FG16S1QI.c" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32FG16S1QI\startup\system_MDR32FG16S1QI.h" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32FG16S1QI\inc\MDR32FG16S1QI.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\MDR32FxQI_config.h" attr="config"/>
+                <!-- linker file -->
+                <file category="linkerScript" name="IDE\scatter\MDR32FG16S1QI.sct" attr="config"/>
+                <!-- header file -->
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\IRQ_Handler_Template\MDR32FG16S1QI_IT.h" attr="template" select="IT Handlers Template"/>
+                <!-- source file -->
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\IRQ_Handler_Template\MDR32FG16S1QI_IT.c" attr="template" select="IT Handlers Template"/>
+            </files>
+        </component>
+        
+        <!-- ____________________ Peripheral Drivers _______________________ -->
+        <!-- _________________________ MDR32FxQI ___________________________ -->
+        <!-- ADC Driver -->
+        <component Cclass="Drivers" Cgroup="ADC" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>ADC driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_adc.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_adc.c"/>
+            </files>
+        </component>
+        
+        <!-- BKP Driver -->
+        <component Cclass="Drivers" Cgroup="BKP" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>BKP driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_bkp.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_bkp.c"/>
+            </files>
+        </component>
+        
+        <!-- CAN Driver -->
+        <component Cclass="Drivers" Cgroup="CAN" Cversion="2.2.0i" condition="CON_K1986VE9xI_K1986VE1xI">
+            <description>CAN driver for MDR32F9Q2I and MDR32F1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_can.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_can.c"/>
+            </files>
+        </component>
+        
+        <!-- COMP Driver -->
+        <component Cclass="Drivers" Cgroup="COMP" Cversion="2.2.0i" condition="CON_K1986VE9xI_MDR32FG16S1QI">
+            <description>COMP driver for MDR32F9Q2I and MDR32FG16S1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_comp.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_comp.c"/>
+            </files>
+        </component>
+        
+        <!-- DAC Driver -->
+        <component Cclass="Drivers" Cgroup="DAC" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>DAC driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_dac.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_dac.c"/>
+            </files>
+        </component>
+        
+        <!-- DMA Driver -->
+        <component Cclass="Drivers" Cgroup="DMA" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>DMA driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_dma.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_dma.c"/>
+            </files>
+        </component>
+        
+        <!-- EBC Driver -->
+        <component Cclass="Drivers" Cgroup="EBC" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>EBC driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_ebc.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_ebc.c"/>
+            </files>
+        </component>
+        
+        <!-- EEPROM Driver -->
+        <component Cclass="Drivers" Cgroup="EEPROM" Cversion="2.2.0i" condition="CON_MDR32FxQI_EEPROM_DENPENDENCIES_UTILS">
+            <description>EEPROM driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_eeprom.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_eeprom.c"/>
+                <file category="sourceAsm" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_asm.S"/>
+            </files>
+        </component>
+        
+        <!-- I2C Driver -->
+        <component Cclass="Drivers" Cgroup="I2C" Cversion="2.2.0i" condition="CON_K1986VE9xI_MDR32FG16S1QI">
+            <description>I2C driver for MDR32F9Q2I and MDR32FG16S1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_i2c.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_i2c.c"/>
+            </files>
+        </component>
+        
+        <!-- IWDG Driver -->
+        <component Cclass="Drivers" Cgroup="IWDG" Cversion="2.0.3i" condition="CON_MDR32FxQI">
+            <description>IWDG driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_iwdg.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_iwdg.c"/>
+            </files>
+        </component>
+        
+        <!-- PORT Driver -->
+        <component Cclass="Drivers" Cgroup="PORT" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>PORT driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_port.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_port.c"/>
+            </files>
+        </component>
+        
+        <!-- POWER Driver -->
+        <component Cclass="Drivers" Cgroup="POWER" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>POWER driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_power.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_power.c"/>
+            </files>
+        </component>
+        
+        <!-- RST_CLK Driver -->
+        <component Cclass="Drivers" Cgroup="RST_CLK" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>RST_CLK driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_rst_clk.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_rst_clk.c"/>
+            </files>
+        </component>
+        
+        <!-- SSP Driver -->
+        <component Cclass="Drivers" Cgroup="SSP" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>SSP driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_ssp.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_ssp.c"/>
+            </files>
+        </component>
+        
+        <!-- TIMER Driver -->
+        <component Cclass="Drivers" Cgroup="TIMER" Cversion="2.2.0i" condition="CON_MDR32FxQI">
+            <description>TIMER driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_timer.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_timer.c"/>
+            </files>
+        </component>
+        
+        <!-- UART Driver -->
+        <component Cclass="Drivers" Cgroup="UART" Cversion="2.2.0i" condition="CON_MDR32FxQI_UART_DENPENDENCIES_RST_CLK">
+            <description>UART driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_uart.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_uart.c"/>
+            </files>
+        </component>
+        
+        <!-- WWDG Driver -->
+        <component Cclass="Drivers" Cgroup="WWDG" Cversion="2.0.3i" condition="CON_MDR32FxQI">
+            <description>WWDG driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_wwdg.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_wwdg.c"/>
+            </files>
+        </component>
+        
+        <!-- MIL_STD_1553 Driver -->
+        <component Cclass="Drivers" Cgroup="MIL_STD_1553" Cversion="2.1.0i" condition="CON_MDR32F1QI_K1986VE1xI">
+            <description>MIL_STD_1553 driver for MDR32F1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_mil_std_1553.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_mil_std_1553.c"/>
+            </files>
+        </component>
+        
+        <!-- ARINC429R Driver -->
+        <component Cclass="Drivers" Cgroup="ARINC429R" Cversion="2.1.0i" condition="CON_MDR32F1QI_K1986VE1xI">
+            <description>ARINC429R driver for MDR32F1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_arinc429r.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_arinc429r.c"/>
+            </files>
+        </component>
+        
+        <!-- ARINC429T Driver -->
+        <component Cclass="Drivers" Cgroup="ARINC429T" Cversion="2.1.0i" condition="CON_MDR32F1QI_K1986VE1xI">
+            <description>ARINC429T driver for MDR32F1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_arinc429t.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_arinc429t.c"/>
+            </files>
+        </component>
+        
+        <!-- Ethernet Driver -->
+        <component Cclass="Drivers" Cgroup="Ethernet" Cversion="2.2.0i" condition="CON_MDR32F1QI_K1986VE1xI_ETH_DEPENDENCIES_DMA_RST_CLK_UTILS">
+            <description>Ethernet driver for MDR32F1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_eth.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_eth.c"/>
+            </files>
+        </component>
+        
+        <!-- USB Driver -->
+        <component Cclass="Drivers" Cgroup="USB" Cversion="2.1.0i" condition="CON_MDR32FxQI">
+            <description>USB driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_usb.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_usb.c"/>
+            </files>
+        </component>
+        
+        <!-- USB Library Driver -->
+        <component Cclass="Drivers" Cgroup="USB Library" Cversion="2.1.0i" condition="CON_MDR32FxQI_USBLIB_DENPENDENCIES_USB">
+            <description>USB Library for MDR32FxQI Devices</description>
+            <files>
+                <file category="doc"    name="Libraries\SPL\MDR32FxQI\inc\USB_Library\MDR32FxQI_USB_Library.pdf"/>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\USB_Library\MDR32FxQI_usb_CDC.h"/>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\USB_Library\MDR32FxQI_usb_device.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\USB_Library\MDR32FxQI_usb_CDC.c"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\USB_Library\MDR32FxQI_usb_device.c"/>
+            </files>
+        </component>
+        
+        <!-- SDIO Driver -->
+        <component Cclass="Drivers" Cgroup="SDIO" Cversion="2.0.3i" condition="CON_MDR32FG16S1QI">
+            <description>SDIO driver for MDR32FG16S1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_sdio.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_sdio.c"/>
+            </files>
+        </component>
+        
+        <!-- Audio Driver -->
+        <component Cclass="Drivers" Cgroup="Audio" Cversion="2.1.0i" condition="CON_MDR32FG16S1QI">
+            <description>Audio driver for MDR32FG16S1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_audio.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_audio.c"/>
+            </files>
+        </component>
+        
+        <!-- DSP Driver -->
+        <component Cclass="Drivers" Cgroup="DSP" Cversion="2.0.3i" condition="CON_MDR32FG16S1QI">
+            <description>DSP driver for MDR32FG16S1QI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_dsp.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_dsp.c"/>
+            </files>
+        </component>
+        
+        <!-- UTILS Driver -->
+        <component Cclass="Drivers" Cgroup="UTILS" Cversion="1.2.0i" condition="CON_MDR32FxQI_UTILS_DENPENDENCIES_RST_CLK">
+            <description>Utils driver for MDR32FxQI Devices</description>
+            <files>
+                <file category="header" name="Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_utils.h"/>
+                <file category="source" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_utils.c"/>
+                <file category="sourceAsm" name="Libraries\SPL\MDR32FxQI\src\MDR32FxQI_asm.S"/>
+            </files>
+        </component>
+
+    </components>
+
+
+</package>
+
